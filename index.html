@@ -73,7 +73,7 @@ var _hmt = _hmt || [];
 		  <h1 class="header-author"><a href="/">TA</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">迷醉于自身软弱的人，会希望在众人的目光下倒在街头</p>
+		<p class="header-subtitle">为了寻找你，我搬进鸟的眼睛，经常盯着路过的风</p>
 		
 
 		<nav class="header-menu">
@@ -92,15 +92,15 @@ var _hmt = _hmt || [];
 		<nav class="header-smart-menu">
     		
     			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">我是谁</a>
+    			
+            
+    			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">这里有我的一生</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">如果有朋友就好了</a>
-    			
-            
-    			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">我是谁</a>
+    			<a q-on="click: openSlider(e, 'archives')" href="javascript:void(0)">归档</a>
     			
             
 		</nav>
@@ -113,11 +113,7 @@ var _hmt = _hmt || [];
 		        
 					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ta123" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
-					<a class="qq" target="_blank" href="mailto:825884882@qq.com" title="qq"><i class="icon-qq"></i></a>
-		        
 					<a class="mail" target="_blank" href="mailto:xiexy17@mails.tsinghua.edu.cn" title="mail"><i class="icon-mail"></i></a>
-		        
-					<a class="google" target="_blank" href="mailto:ta825884882@gmail.com" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -141,7 +137,7 @@ var _hmt = _hmt || [];
 			  <h1 class="header-author js-header-author">TA</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>迷醉于自身软弱的人，会希望在众人的目光下倒在街头<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>为了寻找你，我搬进鸟的眼睛，经常盯着路过的风<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -164,11 +160,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/ta123" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
-						<a class="qq" target="_blank" href="mailto:825884882@qq.com" title="qq"><i class="icon-qq"></i></a>
-			        
 						<a class="mail" target="_blank" href="mailto:xiexy17@mails.tsinghua.edu.cn" title="mail"><i class="icon-mail"></i></a>
-			        
-						<a class="google" target="_blank" href="mailto:ta825884882@gmail.com" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -200,27 +192,43 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hexo学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hexo搭建笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/hexo学习笔记/">hexo学习笔记</a>
+      <a class="article-title" href="/hexo搭建笔记/">hexo搭建笔记</a>
     </h1>
   
 
         
-        <a href="/hexo学习笔记/" class="archive-article-date">
-  	<time datetime="2018-01-11T18:09:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
+        <a href="/hexo搭建笔记/" class="archive-article-date">
+  	<time datetime="2018-01-12T06:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>你好，这里是TA的博客，在这里，你可以畅所欲言，和世界分享你的知识。</p>
+        <p>终于。。勉强可以算是把这个blog搭起来了，总共耗时大约一天。在大一上的考试周我竟然在做这种事情，是时候滚去复习了！</p>
+<p>有时间补一下在这个过程中学到的东西和踩过的坑。<br>感觉主要是学了一大堆乱七八糟的前端术语，查了一大堆wiki，看doc看得我心累的不行。一旦有什么地方跟教程不一样，或者教程没有说，就要卡好久。</p>
+<p>然后又挖了一些坑：</p>
+<ol>
+<li><strong>七牛的图床</strong>。实名认证需要的时间比较长。这个应该是唯一一个基础级的坑了，其余的都是一些进阶级的。</li>
+<li>git credential manager</li>
+<li>authencity,CA,SSL,certificate,authentication都是些什么。</li>
+<li>htm,html,http,https,css,php都是些什么。</li>
+<li>数据库、服务器之间有什么关系？服务器的端口又是什么？</li>
+<li>java,javascript,electron,node.js,ejs,done.js都是些什么。</li>
+<li>静态链接、静态文件都是相对于动态(dynamic)而言的，那么动态又是如何实现的、动态是什么样的？</li>
+<li>pull quote,jsfiddle,gist是什么？</li>
+<li>爬虫到底是什么？搜索引擎是爬虫么？还是说爬虫是依赖于搜索引擎的？</li>
+<li>为什么用godaddy的隐蔽转址功能只能隐蔽主页？而把域名服务器设到dnspod上就可以了？域名的解析过程到底是怎样的？</li>
+<li>这个世界上怎么有这么多奇怪的语言？Perl,Scheme,lisp,Qt,Go…它们都是什么？很想多了解一点，并且好好学一下Python,Java,JavaScript,Go,。（好像多了点，以后有时间按这个优先级来学吧。不过我想，学习一门语言必定是有它的算法的，我需要学些什么，我相信语言与语言之间的差异并不会太大，语法规则也会十分的简单，庞大的不过是库而已）</li>
+<li>这么来说，我想学<strong>英语</strong>，如果再有时间可以学俄语。不过其实，我想学的不是<strong>英语</strong>，而是<strong>学英语</strong>，进而如何<strong>学一门语言</strong>。诶，突然脑洞大开，我想做的是这样一个最优化，我最少需要多少单词才能拿来精确解释英语的所有单词？也就是说，英语的最小公理集有多少？因为如果我知道了这件事的话，那么我就只需要首先学会英语的语法结构并且掌握这些单词，再给我一本只包含这些词英英词典，我就可以翘起地球啦~</li>
+</ol>
 
       
 
@@ -255,7 +263,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/hexo学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/hexo搭建笔记/">展开全文 >></a>
         </p>
       
 
@@ -370,15 +378,15 @@ MathJax.Hub.Queue(function() {
     
     
       
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">我是谁</a></li>
+      
+        
+      
       <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">这里有我的一生</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">如果有朋友就好了</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">我是谁</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'archives')"><a href="javascript:void(0)" q-class="active:archives">归档</a></li>
       
         
     </ul>
@@ -445,10 +453,6 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
     
 
     
