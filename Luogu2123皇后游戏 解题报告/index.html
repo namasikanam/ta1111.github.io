@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.namasikanam.com">
-  <title>Archives: 2018 | 正在寻找名字和主人</title>
+  <title>Luogu2123皇后游戏 解题报告 | 正在寻找名字和主人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="曾经是一个小学生的博客，写算法竞赛（OI,ACM）题解，写学习笔记，写日记，写影评，试图用一点点微小的输出掩饰自己对青春的荒废。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="正在寻找名字和主人">
-<meta property="og:url" content="http://www.namasikanam.com/archives/2018/index.html">
+  <meta name="description" content="补了一道两年前的题，感谢cjc教会了本菜。">
+<meta name="keywords" content="贪心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Luogu2123皇后游戏 解题报告">
+<meta property="og:url" content="http://www.namasikanam.com/Luogu2123皇后游戏 解题报告/index.html">
 <meta property="og:site_name" content="正在寻找名字和主人">
-<meta property="og:description" content="曾经是一个小学生的博客，写算法竞赛（OI,ACM）题解，写学习笔记，写日记，写影评，试图用一点点微小的输出掩饰自己对青春的荒废。">
+<meta property="og:description" content="补了一道两年前的题，感谢cjc教会了本菜。">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-07-26T00:10:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正在寻找名字和主人">
-<meta name="twitter:description" content="曾经是一个小学生的博客，写算法竞赛（OI,ACM）题解，写学习笔记，写日记，写影评，试图用一点点微小的输出掩饰自己对青春的荒废。">
+<meta name="twitter:title" content="Luogu2123皇后游戏 解题报告">
+<meta name="twitter:description" content="补了一道两年前的题，感谢cjc教会了本菜。">
   
   
     <link rel="icon" href="/assets/img/favicon.png">
@@ -190,36 +192,101 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Luogu2123皇后游戏 解题报告" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Luogu2123皇后游戏 解题报告/" class="archive-article-date">
-  	<time datetime="2018-07-26T00:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Luogu2123皇后游戏 解题报告/">Luogu2123皇后游戏 解题报告</a>
+    <h1 class="article-title" itemprop="name">
+      Luogu2123皇后游戏 解题报告
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/Luogu2123皇后游戏 解题报告/" class="archive-article-date">
+  	<time datetime="2018-07-26T00:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>补了一道两年前的题，感谢cjc教会了本菜。</p>
+<a id="more"></a>
+<h1 id="出题人的题解"><a href="#出题人的题解" class="headerlink" title="出题人的题解"></a>出题人的题解</h1><p>首先观察到：$\forall 1 \le i &lt; n, c<em>i \le c</em>{i+1}$</p>
+<p>按照惯常的贪心思路，比较交换相邻两项后的大小。（$c,s$是这两项之前的$c$和$\sum a_k$，不妨认为$c_0=0$）<br>$$\max ( \max (c,s + a_i) + b_i,s + a_i + a_j) + b_j \ = \max { c , s + a_i , s + a_i - b_i + a_j } + b_i + b_j \ \le \max { c, s + a_j , s + a_j - b_j + a_i } + b_i + b_j$$</p>
+<p>化简：$\max (a_i, a_i - b_i + a_j ) \le \max (a_j,a_j - b_j + a_i)$</p>
+<p>两边同时减去$a_i + a_j$：$\max (-a_j,-b_i) \le \max (-a_i,-b_j)$</p>
+<p>乘以$-1$：$\min (a_j,b_i) \le \min (a_i,b_j)$</p>
+<p>记此式为$P<em>{i,j}$，若成立则$P</em>{i,j}=1$，否则$P_{i,j}=0$，按此排序即可。</p>
+<p>从<a href="https://blog.csdn.net/willinglive/article/details/41204787" target="_blank" rel="noopener">这篇博客</a>可以知道这是出题人的题解，<a href="https://www.luogu.org/problemnew/solution/P2123" target="_blank" rel="noopener">洛谷的题解</a>以及通过Google我能找到的大部分题解（比如<a href="https://cnyali-lk.github.io/queen/" target="_blank" rel="noopener">这篇</a>、<a href="https://blog.csdn.net/weixin_38199770/article/details/80155662" target="_blank" rel="noopener">这篇</a>、以及<a href="http://www.cnblogs.com/rlt1296/p/9342624.html" target="_blank" rel="noopener">这篇</a>）都是这么做的。</p>
+<h1 id="Hack"><a href="#Hack" class="headerlink" title="Hack"></a>Hack</h1><p>如果$P<em>{i,j}$可以用来排序，要求$P</em>{i,j}$必须是一个偏序关系，即满足自反、反对称和传递性。</p>
+<p>然而传递性是无法满足的，因为对于任意一对满足$P_{i,k}=0$的$i,k$，考虑$a_j=1,b<em>j=1$，$P</em>{i,j}=1,P<em>{j,k}=1,P</em>{i,k} \not = 1$。</p>
+<p>所以在任意一个序列中相邻元素间插入$(1,1)$就可以使得这个序列是有序的，如果你使用冒泡排序，它将不会执行任何操作。如果你使用<code>std::stable_sort</code>或<code>std::sort</code>，下面会是一组hack数据：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">7</span><br><span class="line">6 3</span><br><span class="line">1 1</span><br><span class="line">7 3</span><br><span class="line">1 1</span><br><span class="line">1 6</span><br><span class="line">1 1</span><br><span class="line">6 10</span><br><span class="line"></span><br><span class="line">7</span><br><span class="line">6 10</span><br><span class="line">1 1</span><br><span class="line">6 3</span><br><span class="line">1 1</span><br><span class="line">7 3</span><br><span class="line">1 1</span><br><span class="line">1 6</span><br></pre></td></tr></table></figure></p>
+<h2 id="进一步研究"><a href="#进一步研究" class="headerlink" title="进一步研究"></a>进一步研究</h2><p>究竟什么时候才能满足传递律呢？我们考察以下条件的充要条件：<br>$$\min (a_i,b_j) \le \min (a_j,b_i) \land \min (a_j,b_k) \le \min (a_k,b_j) \land \min (a_i,b_k) &gt; \min (a_k,b_i)$$<br>由于我数学不好，所以只好写了个dfs，搜了下$a_i,b_i,a_j,b_j,a_k,b_k$的相对大小关系，借助计算机辅助可以证明传递律被破坏当且仅当：<br>$$\min (a_i,b_k) &gt; \min (a_k,b_i) \land a_j=b_j=\min(a_i,b_i,a_j,b_j,a_k,b_k)$$<br>也就是说，只有$(1,1)$能作为之前做法的hack。</p>
+<p>证明代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> val[<span class="number">6</span>];</span><br><span class="line"><span class="comment">//val[0]:a_i</span></span><br><span class="line"><span class="comment">//val[1]:b_i</span></span><br><span class="line"><span class="comment">//val[2]:a_j</span></span><br><span class="line"><span class="comment">//val[3]:b_j</span></span><br><span class="line"><span class="comment">//val[4]:a_k</span></span><br><span class="line"><span class="comment">//val[5]:b_k</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v, <span class="keyword">int</span> state)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (state == (<span class="number">1</span> &lt;&lt; <span class="number">6</span>) - <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (min(val[<span class="number">0</span>], val[<span class="number">3</span>]) &lt;= min(val[<span class="number">2</span>], val[<span class="number">1</span>]) &amp;&amp; min(val[<span class="number">2</span>], val[<span class="number">5</span>]) &lt;= min(val[<span class="number">4</span>], val[<span class="number">3</span>]) &amp;&amp; min(val[<span class="number">0</span>], val[<span class="number">5</span>]) &gt; min(val[<span class="number">4</span>], val[<span class="number">1</span>])) <span class="comment">//min(ai,bj)&lt;=min(aj,bi),min(aj,bk)&lt;=min(ak,bj),min(ai,bk)&gt;min(ak,bi)</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"i:(%d,%d) j:(%d,%d) k:(%d,%d)\n"</span>, val[<span class="number">0</span>], val[<span class="number">1</span>], val[<span class="number">2</span>], val[<span class="number">3</span>], val[<span class="number">4</span>], val[<span class="number">5</span>]);</span><br><span class="line">        <span class="keyword">if</span> (min(val[<span class="number">0</span>], val[<span class="number">5</span>]) &gt; min(val[<span class="number">4</span>], val[<span class="number">1</span>]) &amp;&amp; val[<span class="number">2</span>] == <span class="number">1</span> &amp;&amp; val[<span class="number">3</span>] == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"Hahah"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> inv = ~state &amp; (<span class="number">1</span> &lt;&lt; <span class="number">6</span>) - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = inv; i; i = i - <span class="number">1</span> &amp; inv)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">6</span>; j--;)</span><br><span class="line">            <span class="keyword">if</span> (i &gt;&gt; j &amp; <span class="number">1</span>)</span><br><span class="line">                val[j] = v;</span><br><span class="line">        dfs(v + <span class="number">1</span>, state | i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="cjc的题解"><a href="#cjc的题解" class="headerlink" title="cjc的题解"></a>cjc的题解</h1><p>感谢cjc教会了我这个正确的做法。</p>
+<p>从计算机科学哲学角度来看，理想中的排序方式应该是这样的：与$i$相关的在不等式的一边，与$j$相关的在不等式的另一边。按照这种理想，我们试图来拆解之前的式子：<br>$$\min (a_i,b_j) \le \min (a_j,b_i)$$</p>
+<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><p>令$d_i = sgn(a_i - b_i)$<br>先按$d_i$顺序把大臣分为三组，在每一组内分别排序：</p>
+<ol>
+<li>$d_i=-1$，按$a_i$升序排序。</li>
+<li>$d_i=0$，以任意顺序排序。</li>
+<li>$d_i=1$，按$b_i$降序排序。</li>
+</ol>
+<h2 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h2><p>显然这种做法满足自反、反对称和传递性（没有$j$的描述）。所以只需要证明以此种方法排序后，相邻两项满足$P_{i,j}=1(j=i+1)$即可。</p>
+<p>方便起见把$P_{i,j}$化为：<br>$$(a_i \le a_j \lor b_j \le a_j) \land (a_i \le b_i \lor b_j \le b_i)$$</p>
+<p>分为四种情况讨论：</p>
+<ol>
+<li>第一组内：$a_i \le a_j$，满足左边；$a_i &lt; b_i$，满足右边。</li>
+<li>第二组内：$a_j = b_j$，满足左边；$a_i = b_i$，满足右边。</li>
+<li>第三组内：$b_j &lt; a_j$，满足左边；$b_j &lt; b_i$，满足右边。</li>
+<li>两组交界处：$b_j \le a_j$，满足左边；$a_i \le b_i$，满足右边。</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">50000</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Secretary</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a, b, d;</span><br><span class="line">&#125; sty[N + <span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">const</span> Secretary &amp;x, <span class="keyword">const</span> Secretary &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x.d != y.d)</span><br><span class="line">        <span class="keyword">return</span> x.d &lt; y.d;</span><br><span class="line">    <span class="keyword">if</span> (x.d &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> x.a &lt; y.a;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> x.b &gt; y.b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;sty[i].a, &amp;sty[i].b);</span><br><span class="line">            sty[i].d = sty[i].a - sty[i].b;</span><br><span class="line">            <span class="keyword">if</span> (sty[i].d)</span><br><span class="line">                sty[i].d /= <span class="built_in">abs</span>(sty[i].d);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(sty + <span class="number">1</span>, sty + n + <span class="number">1</span>, cmp);</span><br><span class="line">        ll c = <span class="number">0</span>, s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            s += sty[i].a;</span><br><span class="line">            c = max(c, s) + sty[i].b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, c);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li>找规律：如果没有思路的话，手算前几项/后几项/小数据很有可能会带来启发！</li>
+<li>现在我更倾向于相信只有那种$i,j$分别在不等号两边的<code>cmp</code>才能用来排序，当然，也可以是它们的复合，即多关键字/多层排序。</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你，今晚可以吃饺子啦~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -231,7 +298,7 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -244,413 +311,139 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.namasikanam.com/Luogu2123皇后游戏 解题报告/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/YNOI2016炸脖龙 解题报告/" class="archive-article-date">
-  	<time datetime="2018-07-16T05:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/YNOI2016炸脖龙 解题报告/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">YNOI2016炸脖龙 解题报告</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/YNOI2016炸脖龙 解题报告/">YNOI2016炸脖龙 解题报告</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线段树</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数论</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法竞赛//" class="article-tag-list-link color5">算法竞赛</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#出题人的题解"><span class="toc-number">1.</span> <span class="toc-text">出题人的题解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hack"><span class="toc-number">2.</span> <span class="toc-text">Hack</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#进一步研究"><span class="toc-number">2.1.</span> <span class="toc-text">进一步研究</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cjc的题解"><span class="toc-number">3.</span> <span class="toc-text">cjc的题解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#做法"><span class="toc-number">3.1.</span> <span class="toc-text">做法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#证明"><span class="toc-number">3.2.</span> <span class="toc-text">证明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-number">3.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/吐槽知乎/" class="archive-article-date">
-  	<time datetime="2018-06-30T08:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/吐槽知乎/">吐槽一下知乎</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日记//" class="article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/努力！奋斗！/" class="archive-article-date">
-  	<time datetime="2018-06-22T12:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/努力！奋斗！/">努力!奋斗!</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日记//" class="article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/大物期末之后/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/大物期末之后/">大物期末之后</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日记//" class="article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/无题/" class="archive-article-date">
-  	<time datetime="2018-06-16T03:19:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/无题/">无题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日记//" class="article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/杭州之行归来的第二天/" class="archive-article-date">
-  	<time datetime="2018-01-21T04:14:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/杭州之行归来的第二天/">杭州之行归来的第二天</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">电影</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日记//" class="article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo搭建笔记/" class="archive-article-date">
-  	<time datetime="2018-01-13T13:48:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo搭建笔记/">hexo搭建笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/现在是线代期末前夜/" class="archive-article-date">
-  	<time datetime="2018-01-13T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/现在是线代期末前夜/">现在是线代期末前夜</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/日记//" class="article-tag-list-link color3">日记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzE2Mi85NzIw">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
 
 
           </div>
@@ -673,8 +466,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
