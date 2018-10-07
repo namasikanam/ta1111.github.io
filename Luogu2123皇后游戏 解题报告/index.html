@@ -216,6 +216,7 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <h1 id="出题人的题解"><a href="#出题人的题解" class="headerlink" title="出题人的题解"></a>出题人的题解</h1><p>按照惯常的贪心思路，比较交换相邻两项后的大小。观察到$\forall 0 \le i &lt; n, c_i \le c_{i+1}$，所以其实我们只需要比较后一项的大小即可。（$c,s$是这两项之前的$c$和$\sum a_k$，不妨认为$c_0=0$）<br>$$\max ( \max (c,s + a_i) + b_i,s + a_i + a_j) + b_j \\ = \max { c , s + a_i , s + a_i - b_i + a_j } + b_i + b_j \\ \le \max { c, s + a_j , s + a_j - b_j + a_i } + b_i + b_j$$</p>
 <p>化简：$\max (a_i, a_i - b_i + a_j ) \le \max (a_j,a_j - b_j + a_i)$</p>
+<p>(注意这一步并非是一个等价的不等式变换, 事实上我们得到的是一个充分不必要条件)</p>
 <p>两边同时减去$a_i + a_j$：$\max (-a_j,-b_i) \le \max (-a_i,-b_j)$</p>
 <p>乘以$-1$：$\min (a_j,b_i) \le \min (a_i,b_j)$</p>
 <p>记此式为$P_{i,j}$，若成立则$P_{i,j}=1$，否则$P_{i,j}=0$，按此排序即可。</p>
@@ -371,6 +372,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/LeetCode 96 比赛总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          LeetCode Weekly Contest 96 比赛总结
+        
+      </div>
+    </a>
   
   
     <a href="/YNOI2016炸脖龙 解题报告/" id="article-nav-older" class="article-nav-link-wrap">
@@ -573,6 +583,14 @@ MathJax.Hub.Queue(function() {
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">知乎</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">博弈论</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
             
               <li class="article-tag-list-item">

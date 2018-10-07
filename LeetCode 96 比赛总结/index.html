@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.namasikanam.com">
-  <title>Tag: 贪心 | 正在寻找名字和主人</title>
+  <title>LeetCode Weekly Contest 96 比赛总结 | 正在寻找名字和主人</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="曾经是一个小学生的博客，写算法竞赛（OI,ACM）题解，写学习笔记，写日记，写影评，试图用一点点微小的输出掩饰自己对青春的荒废。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="正在寻找名字和主人">
-<meta property="og:url" content="http://www.namasikanam.com/tags/贪心/index.html">
+  <meta name="description" content="这周和上周做了LeetCode 95和96，这里是一些杂记。">
+<meta name="keywords" content="博弈论,dp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode Weekly Contest 96 比赛总结">
+<meta property="og:url" content="http://www.namasikanam.com/LeetCode 96 比赛总结/index.html">
 <meta property="og:site_name" content="正在寻找名字和主人">
-<meta property="og:description" content="曾经是一个小学生的博客，写算法竞赛（OI,ACM）题解，写学习笔记，写日记，写影评，试图用一点点微小的输出掩饰自己对青春的荒废。">
+<meta property="og:description" content="这周和上周做了LeetCode 95和96，这里是一些杂记。">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2018-08-05T12:48:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正在寻找名字和主人">
-<meta name="twitter:description" content="曾经是一个小学生的博客，写算法竞赛（OI,ACM）题解，写学习笔记，写日记，写影评，试图用一点点微小的输出掩饰自己对青春的荒废。">
+<meta name="twitter:title" content="LeetCode Weekly Contest 96 比赛总结">
+<meta name="twitter:description" content="这周和上周做了LeetCode 95和96，这里是一些杂记。">
   
   
     <link rel="icon" href="/assets/img/favicon.png">
@@ -190,48 +192,99 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-LeetCode 96 比赛总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Luogu2123皇后游戏 解题报告/" class="archive-article-date">
-  	<time datetime="2018-07-26T00:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Luogu2123皇后游戏 解题报告/">Luogu2123皇后游戏 解题报告</a>
+    <h1 class="article-title" itemprop="name">
+      LeetCode Weekly Contest 96 比赛总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/LeetCode 96 比赛总结/" class="archive-article-date">
+  	<time datetime="2018-08-05T10:23:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这周和上周做了LeetCode 95和96，这里是一些杂记。</p>
+<a id="more"></a>
+<hr>
+<p>LeetCode95.B: n堆石子(n为偶数,所有石子和为奇)，2人轮流取，石子数多者胜，先手是否必胜？</p>
+<p>比赛时写的区间dp，但其实这道题先手是一定必胜的！</p>
+<p>dp的话有一个性质没有用到：n是偶数。</p>
+<p>不妨假设$\sum_{i\equiv 1 \mod 2} a_i &gt; \sum_{i \equiv 0 \mod 2} a_i$（如果不是可以左右对称），先手取第一堆石子，这样后者必然取到下标为偶的石子，归纳可知，先手必胜。</p>
+<hr>
+<p>LeetCode需要初始化数组！</p>
+<p>第一次打LeetCode(Weekly Contest 95)，WA了10发才明白这个问题。</p>
+<hr>
+<p><code>fill(,,&quot;&quot;)</code>来初始化<code>string[]</code>是可行的。</p>
+<p><code>string</code>竟然不能用<code>char</code>来初始化，我使用的方法是用<code>string()+&#39;a&#39;</code>来吧<code>char</code>转换成<code>string</code>。</p>
+<hr>
+<p>$$ab \le c \Leftrightarrow a \le \lfloor \frac{c}{b} \rfloor$$<br>证明：</p>
+<p>($\Rightarrow$)$ab \le c \Rightarrow a \le \frac{c}{b} \Rightarrow a \le \lfloor \frac{c}{b} \rfloor$</p>
+<p>($\Rightarrow$)显然</p>
+<p>（这不是很显然嘛，突然脑抽不明白为什么了，所以证了一发，好像其实也没证什么。。）</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你，今晚可以吃饺子啦~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">博弈论</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -244,17 +297,139 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.namasikanam.com/LeetCode 96 比赛总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/Luogu2123皇后游戏 解题报告/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Luogu2123皇后游戏 解题报告</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    优秀的文章是没有目录的！
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zMzE2Mi85NzIw">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
 
 
           </div>
@@ -277,9 +452,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
